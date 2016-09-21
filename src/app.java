@@ -1,9 +1,13 @@
 
 //import javax.swing.JOptionPane;
-import javax.swing.JFrame;
+import javax.swing.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JFileChooser;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,12 +19,16 @@ class app{
 		OntClass[] Classes=new OntClass[10000];
 		owlparser OwlParser=new owlparser();
 		String[] Value=new String[100];
-		String errori="";
+		 String errori="";
 		int i=0;
+	String file="";
 		Map<String, OntClass> map = new HashMap<String, OntClass>();
+		 
+FileChoose go2=new FileChoose(null);
+go2.setVisible(true);
 		  
-		String fileAddr=JOptionPane.showInputDialog("Enter File Address");
-		OwlParser.readfile(fileAddr);
+		//String fileAddr=JOptionPane.showInputDialog("Enter File Address");
+		OwlParser.readfile(file);
 		Classes=OwlParser.GetClasses();
 		
 		while ( Classes[i]!=null)
@@ -34,7 +42,7 @@ class app{
 		
 		
 		//JOptionPane.showMessageDialog(null,"File Addr is "+fileAddr,"title",JOptionPane.PLAIN_MESSAGE);
-		if (fileAddr!=null)
+		if (file!=null)
 		{	Gui go=new Gui(Value);
 		go.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		go.setSize(500,300);
