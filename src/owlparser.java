@@ -54,7 +54,7 @@ public OntClass[] GetClasses(){
 		return "error";
 		
 	}
-	    return "";
+	    return "ok";
 	    
 	   
 	    }
